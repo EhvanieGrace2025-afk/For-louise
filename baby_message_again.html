@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A little message for you 💗</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:22px;display:grid;place-items:center;font-family:Georgia,serif;background:linear-gradient(135deg,#ffd6e7,#fff3f7,#ffc5dc);color:#994568}
+.card{width:min(100%,430px);padding:34px 25px;text-align:center;background:#ffffffdf;border:1px solid #fff;border-radius:28px;box-shadow:0 14px 40px #b84d7825}
+h1{color:#df568e;font-size:29px;margin:0 0 12px}
+p{line-height:1.6}
+.envelope{font-size:58px;margin:20px}
+button{border:0;border-radius:30px;padding:14px 24px;background:#ef6b9f;color:white;font-size:16px;cursor:pointer}
+#note{display:none;margin-top:24px;padding:20px;border-radius:18px;background:#fff1f6;line-height:1.9;color:#b53f76;font-size:17px}
+.heart{position:fixed;bottom:-30px;animation:up 5s linear forwards;pointer-events:none}
+@keyframes up{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.footer{font-size:12px;color:#c17b9a;margin-top:22px}
+</style>
+</head>
+<body>
+<main class="card">
+<h1>A little message for you 💗</h1>
+<p>Hey youuu, I have something to tell you...</p>
+<div class="envelope">💌</div>
+<button id="open">Tap to open po 💕</button>
+<div id="note" aria-live="polite">
+hellooo baby koo imissyouuu pooo 🥺💗<br>
+work well po todayyy, kain ka rin later.<br>
+and sorry for ignoring you po, just thinking something po.
+</div>
+<div class="footer">sending you a little hug 🫂</div>
+</main>
+<script>
+document.getElementById('open').addEventListener('click',()=>{
+document.getElementById('note').style.display='block';
+document.getElementById('open').textContent='sending hugs to you 💗';
+for(let i=0;i<22;i++){
+const h=document.createElement('span');h.className='heart';
+h.textContent=['💗','💕','💖'][Math.floor(Math.random()*3)];
+h.style.left=Math.random()*100+'vw';h.style.fontSize=(16+Math.random()*22)+'px';
+h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);
+setTimeout(()=>h.remove(),6500);
+}
+});
+</script>
+</body>
+</html>
